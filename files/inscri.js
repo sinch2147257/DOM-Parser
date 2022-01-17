@@ -55,7 +55,7 @@ const showTable = (xmlRes) => {
             </tr>
         </form>`;
     }
-    document.getElementById("product _table").innerHTML = table;
+    document.getElementById("member_table").innerHTML = table;
 }
 
 const removeNode = (id) => {
