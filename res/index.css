@@ -85,7 +85,7 @@ html,body{
 }
 
 .form_popup > h1{
-    background: #36304a;
+    background: #2e2e30;
     color: #fff;
     padding: 20px;
     font-size: 160%;
@@ -141,8 +141,8 @@ html,body{
     margin-right: 172px;
     margin-bottom: 10px;
     border-radius: 5px;
-    background: #36304a;
-    border: 1px solid #36304a;
+    background: #2e2e30;
+    border: 1px solid #2e2e30;
     color: #fff;
     text-transform: uppercase;
     font-weight: 700;
