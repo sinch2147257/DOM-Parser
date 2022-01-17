@@ -27,11 +27,11 @@ const showTable = (xmlRes) => {
     state.xmlDocObj = xmlRes;
     let table;
     table = `<tr style='background:#36304a;color:#fff;'>
-        <th>Product Name</th>
+        <th>Name</th>
         <th>Price</th>
-        <th>Offers</th>
+        <th>Offer</th>
         <th>Available</th>
-        <th>Description</th>
+        <th>description</th>
         <th>Actions</th>
         </tr>`;
     const x = xmlRes.getElementsByTagName("product");
@@ -72,9 +72,9 @@ const changeNode = (id) => {
     let formElem = `
     <input disabled class='input_fields' type='text' placeholder='Product Name' value='${state.xmlDocObj.getElementsByTagName("name")[id].childNodes[0].nodeValue}'/>
     <input disabled class='input_fields' type='text' placeholder='Price' value='${state.xmlDocObj.getElementsByTagName("price")[id].childNodes[0].nodeValue}'/>
-    <input class='input_fields' type='text' placeholder='Offers' value='${state.xmlDocObj.getElementsByTagName("offer")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='Offer' value='${state.xmlDocObj.getElementsByTagName("offer")[id].childNodes[0].nodeValue}'/>
     <input class='input_fields' type='text' placeholder='Available' value='${state.xmlDocObj.getElementsByTagName("available")[id].childNodes[0].nodeValue}'/>
-    <input class='input_fields' type='text' placeholder='Description' value='${state.xmlDocObj.getElementsByTagName("description")[id].childNodes[0].nodeValue}'/>
+    <input class='input_fields' type='text' placeholder='description' value='${state.xmlDocObj.getElementsByTagName("description")[id].childNodes[0].nodeValue}'/>
     <div class='btn_cont'>
         <button class='submit_btn' type='submit' onclick='submitFormHandler(${id})'>Submit</button>
         <button class='cancel_btn' onclick='cancelFormHandler()'>Cancel</button>
@@ -95,6 +95,8 @@ const submitFormHandler = (id) => {
     state.xmlDocObj.getElementsByTagName("offer")[id].childNodes[0].nodeValue = inputFields[2].value;
     state.xmlDocObj.getElementsByTagName("available")[id].childNodes[0].nodeValue = inputFields[3].value;
     state.xmlDocObj.getElementsByTagName("description")[id].childNodes[0].nodeValue = inputFields[4].value;
+    state.xmlDocObj.getElementsByTagName("MobileNumber")[id].childNodes[0].nodeValue = inputFields[5].value;
+    state.xmlDocObj.getElementsByTagName("Email")[id].childNodes[0].nodeValue = inputFields[6].value;
     console.log(inputFields[0].value)
     showTable(state.xmlDocObj)
     cancelFormHandler();
@@ -115,7 +117,7 @@ const addNewFormHandler = () => {
     <input class='input_fields' type='text' placeholder='Product Name' value=''/>
     <input class='input_fields' type='text' placeholder='Price' value=''/>
     <input class='input_fields' type='text' placeholder='Offer' value=''/>
-    <input class='input_fields' type='text' placeholder='Avaialable' value=''/>
+    <input class='input_fields' type='text' placeholder='Available' value=''/>
     <input class='input_fields' type='text' placeholder='description' value=''/>
     <div class='btn_cont'>
         <button class='submit_btn' type='submit' onclick='addNewNodeHandler()'>Submit</button>
@@ -129,7 +131,7 @@ const addNewFormHandler = () => {
 const addNewNodeHandler = () => {
     event.preventDefault();
     const inputFields = document.getElementsByClassName("input_fields");
-    const newnode = state.xmlDocObj.createElement("product ")
+    const newnode = state.xmlDocObj.createElement("product")
     state.nodes.map((el,i) => {
         let newTitle = state.xmlDocObj.createElement(el)
         let newText = state.xmlDocObj.createTextNode(inputFields[i].value)
